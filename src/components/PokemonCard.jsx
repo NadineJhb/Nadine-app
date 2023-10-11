@@ -1,7 +1,7 @@
 
 import PropTypes from "prop-types";
 
-function PokemonCard(props) {
+function PokemonCard( {pokemon} ) {
 
   PokemonCard.propTypes = {
     pokemon: PropTypes.shape({
@@ -10,13 +10,24 @@ function PokemonCard(props) {
   }).isRequired,
 }
 
-  console.log(props);
+  console.log(pokemon);
 
     return (
       <>
       <figure>
-        {props.pokemon.imgSrc !== undefined ? (<><img src={props.pokemon.imgSrc} alt={props.pokemon.name}/>
-        <figcaption>{props.pokemon.name}</figcaption></>) : (<><p>???</p><figcaption>{props.pokemon.name}</figcaption></>)}
+        {pokemon.imgSrc !== undefined ? 
+        
+        <>
+        <img src={pokemon.imgSrc} alt={pokemon.name}/>
+        <figcaption>{pokemon.name}</figcaption></>
+        
+        :
+
+        <>
+        <p>???</p>
+        <figcaption>{pokemon.name}</figcaption>
+        </>
+        }
       </figure>
       </>
     );
