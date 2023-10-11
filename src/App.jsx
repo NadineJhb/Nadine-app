@@ -1,4 +1,3 @@
-
 import PokemonCard from "./components/PokemonCard"
 import { useState } from "react";
 
