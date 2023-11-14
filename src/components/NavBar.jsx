@@ -1,18 +1,28 @@
+import PropTypes from "prop-types";
 
-function NavBar( { pokemonIndex, pokemonList, setPokemonIndex} ){
-  
-  return (
-        <div>
-         {pokemonList.map((poke, index) => {
-         return (
-         <div key={index}>
-           <button onClick={() => setPokemonIndex(index)}>{poke.name}</button>
-         </div>
-         )
-})
+function NavBar({ pokemonList, setPokemonIndex }) {
+
+const handleIndex = (a, b) => {
+  setPokemonIndex(a)
+  b === "pikachu" && alert ("pika pikachu !")
 }
-         </div>
+
+  return (
+    <div>
+      {pokemonList.map((poke, index) => {
+        return (
+          <div key={index}>
+            <button onClick={() => handleIndex(index, poke.name)}>{poke.name}</button>
+          </div>
+        );
+      })}
+    </div>
   );
 }
+
+NavBar.propTypes = {
+  pokemonList: PropTypes.array,
+  setPokemonIndex: PropTypes.func,
+};
 
 export default NavBar;
